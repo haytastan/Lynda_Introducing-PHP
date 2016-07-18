@@ -11,6 +11,7 @@ if (isset($_POST['send'])) {
     $headers[] = 'Cc: another@example.com';
     $headers[] = 'Content-type: text/plain; charset=utf-8';
     $authorized = null;
+    /*if the form has been submitted without the checkbox being selected it is not included in the post array. steps below are necessary because every script in process_mail.php assumes that the post array will contain all elements listed in the expected array. otherwise it will generate errors*/
     if (!isset($_POST['terms'])) {
         $_POST['terms'] = '';
     }
@@ -76,6 +77,7 @@ if (isset($_POST['send'])) {
           ?></textarea>
   </p>
   <p>
+  <!-- agreed value olmasa, check-box tıklanınca on olacaktı -->
     <input type="checkbox" name="terms" id="terms" value="agreed"
         <?php
         if ($_POST && $terms == 'agreed') {
@@ -84,6 +86,7 @@ if (isset($_POST['send'])) {
         ?>
         >
     <label for="terms">I agree to the terms and conditions
+    <!-- for caution if not clicked -->
     <?php if ($missing && in_array('terms', $missing)) : ?>
         <span class="warning">Please signify acceptance</span>
         <?php endif; ?>

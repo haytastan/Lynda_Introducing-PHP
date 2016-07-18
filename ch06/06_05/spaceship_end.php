@@ -10,7 +10,15 @@ $friends = [
     ['first' => 'Diana', 'last' => 'Black']
 ];
 usort($friends, function($a, $b) {
+    // php 7 feature: <=>: php7 spaceship operator
+    // önce last'a göre sonra first'e göre sıralanıyor
     return [$a['last'], $a['first']] <=> [$b['last'], $b['first']];
+    // if the last element of a is smaller than last element of b return -1
+    // if the last element of a is equals to the last element of b return 0
+    // if the last element of a is greater than the last element of b return 1
+    
+    // öncelikle ilk isme göre sıralar:
+    // return [$a['first'], $a['last']] <=> [$b['first'], $b['last']];
 });
 ?>
 <!DOCTYPE html>

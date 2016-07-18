@@ -1,4 +1,5 @@
-<?php $member = 0;  ?>
+<?php $member = 0;  ?> <!-- php treats 0 as false, so this indicates the visitor is not logged in as a registrated member, but guest (1 is used for members)-->
+<!-- we don't have registration system, the solution involves hardcoding the variable to indicate the visitors' status -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +9,12 @@
 </head>
 <body>
 <div id="wrapper">
-    <header class="both">
+    <header class="both"> <!-- shows to both members and non-members -->
         <h1>Nonesuch Club</h1>
         <p>Welcome one and all to a really exclusive club for PHP developers. So exclusive, it doesn't exist!</p>
     </header>
-    <?php if (!$member) : ?>
-    <section class="non-members">
+    <?php if (!$member) : ?> <!-- section is displayed if the visitor is not a member -->
+    <section class="non-members"> <!-- conditional statement olunca html, 2 php tagi arasına alınmış -->
         <h2>Become a Member</h2>
         <p>Useful information for non-members. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae doloribus esse itaque necessitatibus nobis placeat repellat temporibus voluptas. Architecto maxime quisquam soluta veniam? Aliquid consequuntur cum eligendi enim, natus non!</p>
         <p>Accusamus animi architecto asperiores aspernatur at dolor eaque error est illum ipsam libero nam nemo nisi, officiis pariatur quae quidem quod sed sunt totam velit veniam vero voluptas voluptatem voluptatibus?</p>
@@ -21,6 +22,8 @@
     <?php
     endif;
     if ($member) :
+    // alt:
+    // elseif ($member) :
     ?>
     <section class="members">
         <h2>Members' News</h2>
@@ -33,9 +36,9 @@
         </ul>
         <p>Aliquid cum ex expedita illum ipsa maxime, minus, natus nihil officia praesentium quas, quisquam ratione sapiente. Aliquid animi beatae fugit in magnam necessitatibus, nihil nobis quod repudiandae saepe. Similique, ullam?</p>
     </section>
-    <?php endif; ?>
+    <?php endif; ?> <!-- if statementın nerede bittiğini gösteriyor -->
     <section>
-        <div class="both">
+        <div class="both"> <!-- shows to both members and guest -->
         <h3>About this Club</h3>
             <p>This is public information about the Nonesuch Club, so it can be seen by members and non-members alike. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur fugiat praesentium quod reiciendis. Dolor exercitationem expedita inventore maiores nostrum quibusdam repellendus saepe sunt. Aliquid assumenda beatae ipsa neque vel.</p>
             <p>Accusamus architecto, aspernatur commodi consectetur doloremque esse est illum impedit inventore itaque iusto laboriosam nesciunt nostrum nulla optio provident quae quidem sapiente sequi tempore vel veritatis voluptatem. Magni, quos rerum?</p>
@@ -45,7 +48,7 @@
             <h3>Information for Members Only</h3>
             <p>Don't let non-members into the secret! Dolor dolores dolorum harum, illum molestias quia quidem ullam. A accusamus alias assumenda iure provident quae quos! A, alias cumque distinctio excepturi, incidunt mollitia nemo neque quam suscipit ut voluptate.</p>
         </div>
-        <?php endif; ?>
+        <?php endif; ?> <!-- if statementın nerede bittiğini gösteriyor -->
     </section>
 
     <footer class="both">

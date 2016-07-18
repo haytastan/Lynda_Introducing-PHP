@@ -1,4 +1,5 @@
 <?php
+// normally this section would come from a database
 $book = [
     'title' => "The Hitchhiker's Guide to the Galaxy",
     'author' => 'Douglas Adams',

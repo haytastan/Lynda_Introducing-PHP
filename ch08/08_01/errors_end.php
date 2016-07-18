@@ -1,5 +1,5 @@
 <?php
-$siteroot = '/introducingphp/ch08/08_01';
+$siteroot = '/my-site/Lynda_Introducing-PHP/ch08/08_01';
 include './includes/copyright.php'; ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -3,7 +3,7 @@ $errors = [];
 $missing = [];
 if (isset($_POST['send'])) {
     $expected = ['name', 'email', 'comments', 'extras'];
-    $required = ['name', 'comments'];
+    $required = ['name', 'comments']; /*required arraye extras eklenmedi*/
     $to = 'David Powers <david@example.com>';
     $subject = 'Feedback from online form';
     $headers = [];
@@ -12,9 +12,11 @@ if (isset($_POST['send'])) {
     $headers[] = 'Content-type: text/plain; charset=utf-8';
     $authorized = null;
     if (!isset($_POST['extras'])) {
-        $_POST['extras'] = [];
+        $_POST['extras'] = []; /*needs to be an empty array, not an empty string*/
     }
-    $minimumChecked = 2;
+
+    // bir seferde tıklanması gereken minimum check box sayısını belirtmek için
+    $minimumChecked = 2; 
     if (count($_POST['extras']) < $minimumChecked) {
         $errors['extras'] = true;
     }
@@ -81,10 +83,14 @@ if (isset($_POST['send'])) {
   </p>
   <fieldset>
     <legend>Optional Extras
-    <?php if (isset($errors['extras'])) : ?>
-        <span class="warning">Please select at least <?= $minimumChecked; ?></span>
-        <?php  endif; ?>
+    <!-- bir seferde tıklanması gereken minimum check box sayısını belirtmek için -->
+    <!-- ($missing && in_array('extras', $missing)) denmedi minimum 2 checkboxın işaretlenmesini istediğimiz için -->
+    <?php if (isset($errors['extras'])) : ?> 
+      <span class="warning">Please select at least <?= $minimumChecked; ?></span>
+    <?php endif; ?>
     </legend>
+    <!-- extras yerine extras[] dendi, zira check-boxlarda aynı anda 1'den fazla seçim yapılabilir -->
+    <!-- extras array will be created by the mail processing script in process_mail.php which goes through each element in the post array and creates a new element named after the element's key -->
     <input type="checkbox" name="extras[]" value="sun roof" id="extras_0"
         <?php
         if ($_POST && in_array('sun roof', $extras)) {

@@ -1,8 +1,12 @@
 <?php
+/*errors array not used*/
 $errors = [];
 $missing = [];
+// php provides security to javascript in validating the user input
+// ***if sta tests if value corresponding to the send key of post array has been set. if it is we know send (attr value of name attr) has been submitted and we execute the following code***
+// expected array will list the names of the fields in the form. required array states the required fields
 if (isset($_POST['send'])) {
-    $expected = ['name', 'email', 'comments'];
+    $expected = ['name', 'email', 'comments']; 
     $required = ['name', 'comments'];
     require './includes/process_mail.php';
 }
@@ -17,6 +21,8 @@ if (isset($_POST['send'])) {
 
 <body>
 <h1>Contact Us</h1>
+<!-- errors array kullanılmadı, 
+required array'den yola çıkıldı ve missing array check edildi en sonunda -->
 <?php if ($errors || $missing) : ?>
 <p class="warning">Please fix the item(s) indicated</p>
 <?php endif; ?>

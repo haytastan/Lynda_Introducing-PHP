@@ -1,4 +1,4 @@
-<?php $siteroot = '/introducingphp/ch07/07_06/end'; ?>
+<?php $siteroot = '/my-site/Lynda_Introducing-PHP/ch07/07_06/end'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

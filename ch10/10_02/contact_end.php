@@ -2,8 +2,8 @@
 $errors = [];
 $missing = [];
 if (isset($_POST['send'])) {
-    $expected = ['name', 'email', 'comments', 'gender'];
-    $required = ['name', 'comments', 'gender'];
+    $expected = ['name', 'email', 'comments', 'gender']; /*name of radio button added*/
+    $required = ['name', 'comments', 'gender']; /*genderı expected arrayin elemanı olmadan required arrayin parçası yapabilirdik*/
     $to = 'David Powers <david@example.com>';
     $subject = 'Feedback from online form';
     $headers = [];
@@ -11,9 +11,11 @@ if (isset($_POST['send'])) {
     $headers[] = 'Cc: another@example.com';
     $headers[] = 'Content-type: text/plain; charset=utf-8';
     $authorized = null;
-    if (!isset($_POST['gender'])) {
+    /*because if no button is set as the default we also need to check whether gender has been included in the post array. if gender element of post array is not set we create a default value of empty string for gender. this is necessary because every script in process_mail.php assumes that every input field listed in the expected array will be included in the post array. otherwise it will generate errors*/
+    if (!isset($_POST['gender'])) { /* *** key-value ilişkisi var. gender: key/name attr, (empty string): value/value attr*** */
         $_POST['gender'] = '';
     }
+    /* ***most (drop down hariç hepsi) multiple choice elements are not included in the post array if no value is selected*** */
     require './includes/process_mail.php';
 }
 ?>
@@ -76,11 +78,15 @@ if (isset($_POST['send'])) {
           ?></textarea>
   </p>
   <fieldset>
+  <!-- gender, required array'de olduğu için eklendi -->
       <legend>Gender: <?php if ($missing && in_array('gender', $missing)) : ?>
           <span class="warning">Please select a value</span>
           <?php  endif; ?>
       </legend>
       <p>
+        <!-- let's say radio button has been selected, but there was an error in the form. we need to redisplay the form with the selected button preserved. we use below php tags for that. 
+        if POST array has elements it means form has been submitted
+        gender variable comes from the mail processing script which converts the post array into new variables based on the array element key-->
         <input type="radio" name="gender" value="female" id="gender_f"
             <?php
             if ($_POST && $gender == 'female') {
@@ -101,6 +107,8 @@ if (isset($_POST['send'])) {
             <?php
             if (!$_POST || $gender == "won't say") {
                 echo 'checked';
+                // default value when not posted 
+                // also when posted with this radio button clicked, it preserves data
             }
             ?>
             >

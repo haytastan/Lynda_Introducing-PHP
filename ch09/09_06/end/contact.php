@@ -4,13 +4,24 @@ $missing = [];
 if (isset($_POST['send'])) {
     $expected = ['name', 'email', 'comments'];
     $required = ['name', 'comments'];
-    $to = 'David Powers <david@example.com>';
+    $to = 'David Powers <david@example.com>'; 
+    /* for only mailing adress: $to ='david@example.com' 
+    we should separate by comma for more than 1 mailing adress */
+
     $subject = 'Feedback from online form';
-    $headers = [];
-    $headers[] = 'From: webmaster@example.com';
-    $headers[] = 'Cc: another@example.com';
-    $headers[] = 'Content-type: text/plain; charset=utf-8';
-    $authorized = null;
+    /*body of the email message is normally 3rd argument, which is absent now. 
+    first 3 args (to, subject, body) are necessary, while last 2 args (headers and authorized) are optional*/
+    $headers = []; /*empty array*/
+    $headers[] = 'From: webmaster@example.com'; /*added to empty array*/
+    /*this should be email adress on our own domain. 
+    we shouldnt use it for the email adress submitted through the form*/
+
+    $headers[] = 'Cc: another@example.com'; /*added to empty array*/
+    // Cc and Bcc are used to send the copy of the mailing adress to another adress
+    // if we want more than one adress to send the mail, we should separate by comma
+
+    $headers[] = 'Content-type: text/plain; charset=utf-8'; /*added to empty array*/
+    $authorized = null; /*this is for security to stop spam*/
     require './includes/process_mail.php';
 }
 ?>

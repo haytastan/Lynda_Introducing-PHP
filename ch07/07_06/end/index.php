@@ -1,4 +1,5 @@
-<?php $siteroot = '/introducingphp/ch07/07_06/end'; ?>
+<!-- it is very important to work with a file that is on the top level of the site, that is because all the links in the current site are document relative -->
+<?php $siteroot = '/my-site/Lynda_Introducing-PHP/ch07/07_06/end'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

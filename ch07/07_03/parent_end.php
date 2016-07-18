@@ -1,4 +1,5 @@
-<?php $siteroot = '/introducingphp/ch07/07_03'; ?>
+<?php $siteroot = '/my-site/Lynda_Introducing-PHP/ch07/07_03'; ?>
+<!-- browser'da localhost'dan sonra yazdığımız kısım -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

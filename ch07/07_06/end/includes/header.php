@@ -1,3 +1,4 @@
+<!-- top banner and images added to server side includes beyond the nav panel  -->
 <header>
     <div class="branding"> <img src="<?= $siteroot; ?>/images/ralogo_monogram.png" alt="Logo">
         <p>Roux Academy<br>

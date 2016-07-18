@@ -1,3 +1,4 @@
+<!-- we are trying to verify that mail processing script has correctly formed the message body and headers of the message -->
 <?php
 $errors = [];
 $missing = [];
@@ -76,13 +77,14 @@ if (isset($_POST['send'])) {
     <input type="submit" name="send" id="send" value="Send Comments">
   </p>
 </form>
-<pre>
+<pre> <!-- below code was used to check if mail has been sent -->
     <?php
-    if ($_POST && $mailSent) {
+    if ($_POST && $mailSent) { /*if form has been submitted and mail is sent*/
         echo "Message: \n\n";
-        echo htmlentities($message);
+        echo htmlentities($message); /*message body*/
         echo "Headers: \n\n";
         echo htmlentities($headers);
+        // although this solution involves more code than concatinating the 3 input fields manually it will be a great time saver with a more complex form. because it uses generic code the mail processing script can be used with any form and it will build the body of the message automatically as long as we give input fields meaningful names and separate multiple words with an underscore 
     }
     ?>
 </pre>

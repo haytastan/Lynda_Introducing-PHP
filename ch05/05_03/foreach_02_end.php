@@ -4,6 +4,7 @@ $descriptions = [
     'Marvin' => 'the paranoid android',
     'Zaphod Beeblebrox' => 'President of the Imperial Galactic Government'
 ];
+$descriptions['Mars']="Great"; /*syntaxe dikkat*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +16,19 @@ $descriptions = [
 <body>
 <h1>Descriptions</h1>
 <?php
+// useful for associative arrays: 
 foreach ($descriptions as $key => $value) {
     echo "<p>$key is $value.</p>";
 }
 ?>
+<!-- alt: listli version: -->
+<!-- <ul>
+	<?php
+	// useful for associative arrays: 
+	foreach ($descriptions as $key => $value) {
+	    echo "<li>$key is $value.</li>";
+	}
+	?>
+</ul>  -->
 </body>
 </html>

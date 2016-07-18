@@ -20,8 +20,8 @@ $characters = [
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1><?= "{$book['title']} by {$book['author']}"; ?></h1>
-<p><?= '"' . $book['title'] . '" is ' . $book['description']; ?>.</p>
+<h1><?= "{$book['title']} by {$book['author']}"; ?></h1> <!-- double quoted string -->
+<p><?= '"' . $book['title'] . '" is ' . $book['description']; ?>.</p> <!-- concatenation opr -->
 <h2>Main Characters</h2>
 <ul>
     <li><?= $characters[0]; ?></li>

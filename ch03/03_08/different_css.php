@@ -1,4 +1,5 @@
-<?php $member = 0; ?>
+<?php $member = 1; ?> 
+<!-- css ile seçicilik yapmak güvenlik zaafiyeti oluşturur -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

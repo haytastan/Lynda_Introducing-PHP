@@ -64,9 +64,12 @@ if (!$suspect) :
             $message .= ucfirst($field) . ": $val\r\n\r\n";
         endforeach;
         $message = wordwrap($message, 70);
-        $mailSent = mail($to, $subject, $message, $headers, $authorized);
+        $mailSent = mail($to, $subject, $message, $headers, $authorized); 
+        /*to: destination adress, message: message body*/
+        /*if mailSent is succeeded it will have a return value of true
+        if we send the mail we send people to another page (through contact.php), thanks.php, which acknowledges that mail has been sent*/
         if (!$mailSent) {
-            $errors['mailfail'] = true;
+            $errors['mailfail'] = true; /*arraye eklendi*/
         }
     endif;
 endif;

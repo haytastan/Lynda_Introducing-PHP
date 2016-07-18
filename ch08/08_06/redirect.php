@@ -1,7 +1,8 @@
 <?php
 if (isset($_POST['redirect'])) {
-    require './includes/somefile.php';
+    require './includes/somefile.php'; /*gives error when clicking the link*/
     header('Location: other.php');
+    /*header is a built-in function used to send http header to redirect to another page*/
     exit;
 }
 ?>

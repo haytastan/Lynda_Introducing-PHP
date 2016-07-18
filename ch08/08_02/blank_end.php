@@ -1,5 +1,7 @@
 <?php
-ini_set('display_errors', '1');
+ini_set('display_errors', '1'); /*not useful for syntax errors*/
+/*there is a syntax error with quotation mark below*/
+/*when the error is gone we shouldn't forget to erase ini_set function for security reasons before uploading to the server*/
 $characters = ['Arthur Dent', 'Ford Prefect', 'Zaphod Beeblebrox', 'Marvin, 'Slartibartfast'];
 ?>
 <!DOCTYPE html>

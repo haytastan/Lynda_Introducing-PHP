@@ -1,9 +1,10 @@
-<?php $siteroot = '/introducingphp/ch07/07_06/end'; ?>
+<?php $siteroot = '/my-site/Lynda_Introducing-PHP/ch07/07_06/end'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css"> 
+<!-- ../ added cause we are in schedule folder -->
 <title>Roux Conference: Schedule</title>
 <meta name="author" content="Designed by Ray Villalobos for Lynda.com">
 <meta name="Copyright" content="Copyright Lynda.com 2012. All Rights Reserved.">
@@ -11,6 +12,7 @@
 <body id="page_schedule">
 <div class="wrapper">
   <?php require '../includes/header.php'; ?>
+  <!-- ../ added cause we are in schedule folder -->
   <!-- Rotator -->
   <section id="main">
     <article id="schedule">

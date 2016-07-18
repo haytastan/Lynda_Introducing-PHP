@@ -14,7 +14,10 @@ $descriptions = [
 </head>
 <body>
 <h1>Descriptions</h1>
+<p><?php echo 'In the revised edition of the Hitchhiker\'s Guide, Earth is described as ' . $descriptions['Earth']; ?></p>
 <p><?php echo "In the revised edition of the Hitchhiker's Guide, Earth is described as {$descriptions['Earth']}"; ?></p>
-<p>Marvin, <?php echo $descriptions['Marvin']; ?>, has a brain the size of a planet.</p>
+<!-- curly brackets are needed in double quotes for associative array -->
+<!-- T_ENCAPSED_AND_WHITESPACE error signals embedding an associative array element into a double quoted string wrongly (sth to do with curly brace)-->
+<p>Marvin, <?php echo $descriptions['Marvin']; ?>, has a brain the size of a planet.</p> <!-- static text would be more appropriate in html as in this sentence rather than the previous ones -->
 </body>
 </html>

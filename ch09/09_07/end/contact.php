@@ -1,7 +1,7 @@
 <?php
 $errors = [];
 $missing = [];
-if (isset($_POST['send'])) {
+if (isset($_POST['send'])) { /*post arraydeki send key (name attr na karşılık gelen attr value) set edilmişse*/
     $expected = ['name', 'email', 'comments'];
     $required = ['name', 'comments'];
     $to = 'David Powers <david@example.com>';
@@ -48,7 +48,7 @@ if (isset($_POST['send'])) {
     <label for="email">Email:
         <?php if ($missing && in_array('email', $missing)) : ?>
             <span class="warning">Please enter your email address</span>
-        <?php elseif (isset($errors['email'])) : ?>
+        <?php elseif (isset($errors['email'])) : ?> <!-- erorrs array'deki email key set edilmiş ise -->
             <span class="warning">Invalid email address</span>
         <?php endif; ?>
     </label>

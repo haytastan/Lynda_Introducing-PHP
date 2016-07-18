@@ -2,6 +2,8 @@
 $errors = [];
 $missing = [];
 if (isset($_POST['send'])) {
+    // echo $_POST['comments'];
+    // echo $_POST['send'];
     $expected = ['name', 'email', 'comments'];
     $required = ['name', 'comments'];
     require './includes/process_mail.php';
@@ -17,9 +19,9 @@ if (isset($_POST['send'])) {
 
 <body>
 <h1>Contact Us</h1>
-<?php if ($_POST && $suspect) : ?>
+<?php if ($_POST && $suspect) : ?> <!-- ***if there are elements in the post array and if suspect variable is true ($_POST: if form has been submitted (zira submit buttonun valeu su garantidir zaten). post array ile valuelara ulaşıyoruz (formdaki valuelar, post arrayin valueları iken, post arrayin keyleri, formdaki name attribute une karşılık gelen valuelardır))***-->
 <p class="warning">Sorry, your mail couldn't be sent.</p>
-<?php elseif ($errors || $missing) : ?>
+<?php elseif ($errors || $missing) : ?> <!-- elseif bitişik -->
 <p class="warning">Please fix the item(s) indicated</p>
 <?php endif; ?>
 <form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
@@ -30,7 +32,7 @@ if (isset($_POST['send'])) {
     <?php endif; ?>
     </label>
     <input type="text" name="name" id="name"
-        <?php
+        <?php /*helps to preserve data in case of error*/
         if ($errors || $missing) {
             echo 'value="' . htmlentities($name) . '"';
         }

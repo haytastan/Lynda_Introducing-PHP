@@ -3,7 +3,8 @@ $total = 155.99;
 $delivery = 10;
 
 switch($total) {
-    case $total < 50:
+	// conditions must be in logical order
+    case $total < 50: /*total'in yazılması gerek*/
         echo 'Total (including delivery): ' . $total += $delivery;
         break;
     case $total < 100:

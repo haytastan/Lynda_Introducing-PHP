@@ -12,12 +12,15 @@ $missing = [];
 
 <body>
 <h1>Contact Us</h1>
-<?php if ($errors || $missing) : ?>
+<?php if ($errors || $missing) : ?> 
+<!-- if either of these 2 arrays have elements, they will be true -->
 <p class="warning">Please fix the item(s) indicated</p>
 <?php endif; ?>
 <form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
   <p>
     <label for="name">Name:
+    <!-- if the user forgets to fill in a required field, the field's name will be added to the missing array.
+    "name" is the attr value we are looking for in the "missing" array -->
     <?php if ($missing && in_array('name', $missing)) : ?>
         <span class="warning">Please enter your name</span>
     <?php endif; ?>

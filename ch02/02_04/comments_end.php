@@ -5,6 +5,9 @@
 
 $firstName = 'David';  // This stores my first name
 
+// unlike js php is not white space sensitive
+// php relies on the closing semicolon to know when it does reach the end of the command
+
 $lastName     =
 
 

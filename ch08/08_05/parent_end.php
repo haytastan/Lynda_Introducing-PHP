@@ -1,6 +1,7 @@
 <?php
-$siteroot = '/introducingphp/ch08/08_05';
-require './includes/copyright.php'; ?>
+$siteroot = '/my-site/Lynda_Introducing-PHP/ch08/08_05';
+require './includes/copyright.php'; ?> <!-- there was a spelling error on this line -->
+<!-- failed to open stream error message: stream is external source that php is incapable of reading and in some cases writing too. here it simply means a file. most of the time reason is either the wrong path or wrongly naming the file. there might also be problem with permissions of the file, or the file might be corrupted -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

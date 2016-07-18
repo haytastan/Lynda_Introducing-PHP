@@ -5,8 +5,9 @@ $characters = [
     'Marvin',
     'Slartibartfast',
     'Ford Prefect'];
-rsort($characters);
+rsort($characters); // reverse order
 ?>
+<!-- in general functions don't change the original value of variables passed them as arguments. so we need to display the return value immediately or capture it in a variable. but there are some exceptions as in array sorting -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -81,6 +81,8 @@ if (isset($_POST['send'])) {
   </p>
   <p>
     <label for="format">Select the formats you require:
+    <!-- *** multiple choice is similar to checkbox for selecting multiple items at once, and therefore we add a pair of square bracket at the end of the name attr for checkbox groups and multiple choice lists
+     multiple choice lists yapılış olarak ise drop down menuye benzer, ancak select tag'de size ve multiple attribute bulunur *** -->
     <?php if (isset($errors['format'])) : ?>
         <span class="warning">Please select at least <?= $minimumSelected; ?></span>
         <?php endif; ?>

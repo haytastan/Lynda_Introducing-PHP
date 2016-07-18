@@ -12,7 +12,7 @@ $characters = ['Arthur Dent', 'Ford Prefect', 'Zaphod Beeblebrox', 'Marvin', 'Sl
 <h1>Main Characters</h1>
 <ul>
     <?php
-    $num_items = count($characters);
+    $num_items = count($characters); // array length
     //for ($i = 0; $i < $num_items; $i += 2) {
     for ($i = $num_items - 1; $i >= 0; $i--) {
         echo "<li>$characters[$i]</li>";

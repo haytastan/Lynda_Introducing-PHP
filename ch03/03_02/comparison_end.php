@@ -9,3 +9,4 @@ if ($name == 'Arthur Dent' && $day == 'Thursday') {
 } else {
     echo 'Is that really a piece of fairy cake?';
 }
+/*one equals sign assigns a value, two equals sign compare*/

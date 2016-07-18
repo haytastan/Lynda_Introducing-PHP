@@ -1,3 +1,4 @@
+<!-- we are trying to send the user input by email -->
 <?php
 $errors = [];
 $missing = [];
@@ -10,11 +11,13 @@ if (isset($_POST['send'])) {
     $headers[] = 'From: webmaster@example.com';
     $headers[] = 'Cc: another@example.com';
     $headers[] = 'Content-type: text/plain; charset=utf-8';
-    $authorized = '-fdavid@example.com';
+    $authorized = '-fdavid@example.com'; /*authenticates the email*/
     require './includes/process_mail.php';
-    if ($mailSent) {
+    if ($mailSent) { /*we use same phrase with detecting suspect phrase if mail is not sent*/
         header('Location: thanks.php');
         exit;
+        // header() is used to send a raw HTTP header.
+        // we use exit to prevent the script going further
     }
 }
 ?>
@@ -28,7 +31,8 @@ if (isset($_POST['send'])) {
 
 <body>
 <h1>Contact Us</h1>
-<?php if ($_POST && ($suspect || isset($errors['mailfail']))) : ?>
+<!-- in case mail fails or there is injection attempt -->
+<?php if ($_POST && ($suspect || isset($errors['mailfail']))) : ?> 
 <p class="warning">Sorry, your mail couldn't be sent.</p>
 <?php elseif ($errors || $missing) : ?>
 <p class="warning">Please fix the item(s) indicated</p>

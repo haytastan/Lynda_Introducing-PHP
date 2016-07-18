@@ -1,5 +1,6 @@
+<!-- we are trying to preserve the input for when we make a mistake filling the forum -->
 <?php
-$errors = [];
+$errors = []; /*error array not used*/
 $missing = [];
 if (isset($_POST['send'])) {
     $expected = ['name', 'email', 'comments'];
@@ -30,7 +31,12 @@ if (isset($_POST['send'])) {
     <input type="text" name="name" id="name"
         <?php
         if ($errors || $missing) {
+          // echo "value='$name'"
+          // yapınca ' sonrasını ekleyemedik
             echo 'value="' . htmlentities($name) . '"';
+          // passing name attr value to htmlentities and wrapping it in double quotes
+          // value; tıpkı type, name ve id gibi inputun bir parçası oluyor eksik girme durumunda ama sol tarafta bulunan value'nun ismi değişebilir
+          // process_mail.php'de $$key = $value; demeseydik hata verecekti, zira $name, $$key olarak düşünülebilir 
         }
         ?>
         >
@@ -59,7 +65,9 @@ if (isset($_POST['send'])) {
           if ($errors || $missing) {
               echo htmlentities($comments);
           }
+          // textareas don't have value attr so they need slightly different way of approaching this
           ?></textarea>
+          <!-- php opening and closing tags should be adjacent to text-area tags -->
   </p>
   <p>
     <input type="submit" name="send" id="send" value="Send Comments">

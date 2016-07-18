@@ -1,5 +1,5 @@
 <?php
-$siteroot = '/introducingphp/ch08/08_05';
+$siteroot = '/my-site/Lynda_Introducing-PHP/ch08/08_05';
 require './includes/copywrite.php'; ?>
 <!DOCTYPE html>
 <html lang="en">

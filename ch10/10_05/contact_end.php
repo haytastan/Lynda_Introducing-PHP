@@ -79,6 +79,7 @@ if (isset($_POST['send'])) {
         <?php endif; ?>
     </label>
     <select name="os" id="os">
+    <!-- value boş olunca drop down listte seçenek olarak düşünülmüyor -->
       <option value=""
           <?php
           if (!$_POST || $os == '') {
